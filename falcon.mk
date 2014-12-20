@@ -178,6 +178,13 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
+# Power
+PRODUCT_PACKAGES += \
+    power.msm8226
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/power_profiles.xml:system/etc/power_profiles.xml
+
 # Properties
 #PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=false
