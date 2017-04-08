@@ -54,12 +54,6 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 72080
 
-# Camera
-PRODUCT_PACKAGES += \
-    camera.msm8226 \
-    libshim_camera \
-    Snap
-
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
