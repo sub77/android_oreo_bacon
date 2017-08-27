@@ -87,6 +87,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.msm8226
 
+# HW Composer
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.1-impl
+
 # IPC router config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
