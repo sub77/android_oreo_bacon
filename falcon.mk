@@ -201,6 +201,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libshims_thermal
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
 # Widevine
 PRODUCT_PACKAGES += \
     libshim_wvm
