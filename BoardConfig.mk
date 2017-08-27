@@ -159,3 +159,5 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 -include vendor/moto/falcon/BoardConfigVendor.mk
+DEVICE_MANIFEST_FILE := device/moto/falcon/manifest.xml
+
