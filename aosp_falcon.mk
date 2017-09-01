@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Get the long list of APNs
+PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+
 # Inherit from falcon device
 $(call inherit-product, device/motorola/falcon/falcon.mk)
 
