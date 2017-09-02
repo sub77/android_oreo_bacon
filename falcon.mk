@@ -61,10 +61,6 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 72080
 
-# Boot Control
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl
-
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
