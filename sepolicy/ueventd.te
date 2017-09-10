@@ -1,2 +1,1 @@
-allow ueventd vfat:dir search;
-allow ueventd vfat:file { getattr open read };
+allow ueventd sysfs_devices_sensors:file create_file_perms;

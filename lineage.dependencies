@@ -1,10 +1,10 @@
 [
   {
-    "repository": "android_device_oppo_common",
-    "target_path": "device/oppo/common"
+    "repository": "android_device_moto_common",
+    "target_path": "device/moto/common"
   },
   {
-    "repository": "android_kernel_oneplus_msm8974",
-    "target_path": "kernel/oneplus/msm8974"
+    "repository": "android_kernel_motorola_msm8226",
+    "target_path": "kernel/motorola/msm8226"
   }
 ]

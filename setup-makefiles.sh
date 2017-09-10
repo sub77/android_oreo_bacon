@@ -18,8 +18,8 @@
 set -e
 
 # Required!
-DEVICE=bacon
-VENDOR=oneplus
+DEVICE=falcon
+VENDOR=motorola
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
