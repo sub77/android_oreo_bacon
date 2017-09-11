@@ -45,6 +45,7 @@ on early-init
 on init
     export LD_SHIM_LIBS "/system/vendor/lib/libqomx_jpegenc.so|system/lib/libboringssl-compat.so"
     export LD_PRELOAD /system/lib/libboringssl-compat.so
+    export LD_DEBUG=1
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
