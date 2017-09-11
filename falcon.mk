@@ -66,7 +66,7 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     android.hardware.camera.provider@2.4-impl \
     camera.msm8226 \
-    Snap
+    SnapdragonCamera
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -219,6 +219,11 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     ueventd.qcom.rc
+
+# Release tools CDMA APN list
+PRODUCT_COPY_FILES += \
+    vendor/omni/prebuilt/etc/apns-conf.xmlvendor/omni/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml \
+    vendor/omni/prebuilt/etc/apns-conf-cdma.xml:system/etc/apns-conf-cdma.xml
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
