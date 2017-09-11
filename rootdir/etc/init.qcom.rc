@@ -43,7 +43,7 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on init
-    export LD_SHIM_LIBS "/system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so"
+    export LD_SHIM_LIBS "/system/vendor/lib/libqomx_jpegenc.so|system/lib/libboringssl-compat.so"
     export LD_PRELOAD /system/lib/libboringssl-compat.so
 
     # Set permissions for persist partition
