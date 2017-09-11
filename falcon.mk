@@ -95,7 +95,8 @@ PRODUCT_PACKAGES += \
     gralloc.msm8226 \
     hwcomposer.msm8226 \
     memtrack.msm8226 \
-    liboverlay
+    liboverlay \
+    libboringssl-compat
 
 # Gralloc
 PRODUCT_PACKAGES += \
