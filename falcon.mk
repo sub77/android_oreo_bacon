@@ -65,7 +65,8 @@ TARGET_SCREEN_WIDTH := 72080
 PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     android.hardware.camera.provider@2.4-impl \
-    camera.msm8226
+    camera.msm8226 \
+    Snap
 
 # Charger
 PRODUCT_PACKAGES += \
