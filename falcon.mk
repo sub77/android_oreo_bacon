@@ -66,7 +66,9 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     android.hardware.camera.provider@2.4-impl \
     camera.msm8226 \
-    SnapdragonCamera
+    libshims_camera \
+    libshims_sensorlistener \
+    Camera2
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -175,6 +177,11 @@ PRODUCT_PACKAGES += \
 # OMX properties
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.media.treble_omx=false
+
+# Perf
+PRODUCT_PACKAGES += \
+    libshims_atomic
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -205,25 +212,29 @@ PRODUCT_PACKAGES += \
     power.msm8226
 
 # Ramdisk
-PRODUCT_PACKAGES += \
-    dump_pds.sh \
-    fstab.qcom \
-    init.mmi.boot.sh \
-    init.mmi.touch.sh \
-    init.qcom.bt.sh \
-    init.qcom.ril.sh \
-    libinit_falcon
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:root/init.qcom.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.qcom.usb.rc:root/init.qcom.usb.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/dump_pds.sh:root/dump_pds.sh \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:root/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/etc/init.mmi.boot.sh:root/init.mmi.boot.sh \
+    $(LOCAL_PATH)/rootdir/etc/init.mmi.touch.sh:root/init.mmi.touch.sh \
+    $(LOCAL_PATH)/rootdir/etc/init.qcom.bt.sh:root/init.qcom.bt.sh \
+    $(LOCAL_PATH)/rootdir/etc/init.qcom.ril.sh:root/init.qcom.ril.sh \
+    $(LOCAL_PATH)/rootdir/etc/init.qcom.usb.sh:root/init.qcom.usb.sh
 
 PRODUCT_PACKAGES += \
-    init.qcom.rc \
-    init.qcom.usb.rc \
-    init.recovery.qcom.rc \
-    ueventd.qcom.rc
+    libinit_falcon
 
 # Release tools CDMA APN list
 PRODUCT_COPY_FILES += \
-    vendor/omni/prebuilt/etc/apns-conf.xmlvendor/omni/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml \
-    vendor/omni/prebuilt/etc/apns-conf-cdma.xml:system/etc/apns-conf-cdma.xml
+    $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml \
+    $(LOCAL_PATH)/configs/apns-conf-cdma.xml:system/etc/apns-conf-cdma.xml
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -261,10 +272,16 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     hostapd \
+    libwpa_client \
     wcnss_service \
     wpa_supplicant \
     wificond \
     wifilogd
+
+PRODUCT_PACKAGES += \
+    libcurl \
+    libqsap_sdk \
+    libQWiFiSoftApCfg
 
 PRODUCT_PACKAGES += \
     hostapd_default.conf \
@@ -272,7 +289,8 @@ PRODUCT_PACKAGES += \
     hostapd.deny \
     wpa_supplicant.conf \
     wpa_supplicant_overlay.conf \
-    p2p_supplicant_overlay.conf
+    p2p_supplicant_overlay.conf \
+    WCNSS_qcom_wlan_factory_nv.bin
 
 # WiFi HAL
 PRODUCT_PACKAGES += \
@@ -282,4 +300,4 @@ PRODUCT_PACKAGES += \
 $(call inherit-product-if-exists, vendor/moto/falcon/falcon-vendor.mk)
 
 # Inherit from moto-common
-$(call inherit-product, device/moto/common/common.mk)
+#$(call inherit-product, device/moto/common/common.mk)
