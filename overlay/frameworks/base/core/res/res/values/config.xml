@@ -424,8 +424,4 @@
 
     <!-- Night Mode -->
     <bool name="config_nightDisplayAvailable">true</bool>
-
-    <!-- Proximity check -->
-    <bool name="config_proximityCheckOnWake">true</bool>
-    <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
 </resources>
