@@ -15,9 +15,6 @@
 
 import re
 
-import common
-import edify_generator
-
 #def FullOTA_Assertions(info):
 #  AddBootloaderAssertion(info, info.input_zip)
 
@@ -34,8 +31,8 @@ def IncrementalOTA_PostValidate(info):
   ReplaceApnList(info)
 
 
-#def FullOTA_PostValidate(info):
-#  ResizeSystem(info)
+def FullOTA_PostValidate(info):
+  ResizeSystem(info)
 
 
 def AddBootloaderAssertion(info, input_zip):
