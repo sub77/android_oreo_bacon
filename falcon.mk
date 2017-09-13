@@ -72,6 +72,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     camera.msm8226 \
     libshims_camera \
+    libshims_qcopt \
     libshims_sensorlistener \
     Camera2
 
@@ -96,7 +97,7 @@ PRODUCT_PACKAGES += \
     MotoGDoze
 
 # DRM
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl
 
 # Gello
@@ -175,9 +176,15 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libbson \
     libcnefeatureconfig \
+    libcurl \
     libnl_2 \
+    libstlport \
     libtinyxml \
     libxml2
+
+# Netutils
+#PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0
 
 # OMX properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -215,6 +222,10 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     power.msm8226
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=false
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -281,13 +292,11 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wcnss_service \
     wpa_supplicant \
-    wificond \
-    wifilogd
+    wificond
 
 PRODUCT_PACKAGES += \
-    libcurl \
     libqsap_sdk \
-    libQWiFiSoftApCfg
+    #libQWiFiSoftApCfg
 
 PRODUCT_PACKAGES += \
     hostapd_default.conf \

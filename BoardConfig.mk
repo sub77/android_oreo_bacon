@@ -41,7 +41,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := krait
 
 # Assertions
-TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
+#TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
@@ -70,6 +70,7 @@ BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_GENERIC_AUDIO := true
 TARGET_USES_QCOM_MM_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 0
+USE_LEGACY_LOCAL_AUDIO_HAL := true
 
 # Bluetooth
 BLUETOOTH_HCI_USE_MCT := true
@@ -132,6 +133,9 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Memory
 MALLOC_SVELTE := true
 
+# netd
+TARGET_KERNEL_NO_FRA_UID_RANGE_SUPPORT := true
+
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_QCOM_AUDIO_VARIANT := caf-msm8974
@@ -170,6 +174,9 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+#wificond
+TARGET_KERNEL_NO_NL80211_ATTR_MAC := true
 
 -include vendor/moto/falcon/BoardConfigVendor.mk
 DEVICE_MANIFEST_FILE := device/moto/falcon/manifest.xml

@@ -15,16 +15,16 @@
 
 import re
 
-def FullOTA_Assertions(info):
-  AddBootloaderAssertion(info, info.input_zip)
+#def FullOTA_Assertions(info):
+#  AddBootloaderAssertion(info, info.input_zip)
 
 
 def FullOTA_PostValidate(info):
   ReplaceApnList(info)
 
 
-def IncrementalOTA_Assertions(info):
-  AddBootloaderAssertion(info, info.target_zip)
+#def IncrementalOTA_Assertions(info):
+#  AddBootloaderAssertion(info, info.target_zip)
 
 
 def IncrementalOTA_PostValidate(info):

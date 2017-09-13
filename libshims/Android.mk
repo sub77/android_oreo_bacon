@@ -35,13 +35,17 @@ LOCAL_SHARED_LIBRARIES := liblog
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := atomic.cpp
-
 LOCAL_MODULE := libshims_atomic
-LOCAL_MODULE_TAGS := optional
-LOCAL_SHARED_LIBRARIES := liblog
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+include $(BUILD_SHARED_LIBRARY)
 
+# libqc-opt
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := icu56.c
+LOCAL_SHARED_LIBRARIES := libicuuc libicui18n
+LOCAL_MODULE := libshims_qcopt
+LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
