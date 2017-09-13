@@ -434,14 +434,6 @@ on boot
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
-    # Subsytem Restart
-    #adsp
-    write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
-    #modem
-    write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
-    #venus
-    write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
-
 # Services start here
 
 service adsprpcd /system/bin/adsprpcd

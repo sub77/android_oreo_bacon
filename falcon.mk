@@ -236,7 +236,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/dump_pds.sh:root/dump_pds.sh \
+    $(LOCAL_PATH)/rootdir/etc/dump_pds.sh:system/bin/dump_pds.sh \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:root/fstab.qcom \
     $(LOCAL_PATH)/rootdir/etc/init.mmi.boot.sh:root/init.mmi.boot.sh \
     $(LOCAL_PATH)/rootdir/etc/init.mmi.touch.sh:root/init.mmi.touch.sh \
