@@ -14,9 +14,12 @@
 # limitations under the License.
 #
 
-ifneq ($(QCPATH),)
-$(call inherit-product-if-exists, $(QCPATH)/common/config/device-vendor.mk)
-endif
+$(call inherit-product, device/moto/falcon/hidl.mk)
+
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
+# Call the proprietary setup
+$(call inherit-product-if-exists, vendor/moto/falcon/falcon-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay vendor/extra/overlays/phone-720p
@@ -44,12 +47,6 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing
 
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.broadcastradio@1.0-impl \
-    android.hardware.soundtrigger@2.0-impl
-
 # Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
@@ -59,17 +56,14 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
     libbt-vendor
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 72080
+TARGET_SCREEN_WIDTH := 720
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.device@1.0-impl \
-    android.hardware.camera.provider@2.4-impl \
     camera.msm8226 \
     libshims_camera \
     libshims_qcopt \
@@ -84,7 +78,7 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # Data
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     librmnetctl
 
 # Display
@@ -96,12 +90,8 @@ PRODUCT_PROPERTY_OVERRIDES += debug.hwui.use_buffer_age=false
 PRODUCT_PACKAGES += \
     MotoGDoze
 
-# DRM
-#PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl
-
 # Gello
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     Gello
 
 # Graphics
@@ -109,43 +99,22 @@ PRODUCT_PACKAGES += \
     copybit.msm8226 \
     gralloc.msm8226 \
     hwcomposer.msm8226 \
-    memtrack.msm8226 \
-    liboverlay \
-    libboringssl-compat
-
-# Gralloc
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.memtrack@1.0-impl
-
-# GNSS HAL
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
+    memtrack.msm8226
 
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8226
 
-# HW Composer
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.1-impl
-
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl
+    keystore.msm8226
 
 # IPC router config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
-# Keystore
-PRODUCT_PACKAGES += \
-    keystore.msm8226
-
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
     lights.msm8226
 
 # Media profile
@@ -180,10 +149,12 @@ PRODUCT_PACKAGES += \
     libnl_2 \
     libstlport \
     libtinyxml \
-    libxml2
+    libxml2 \
+    liboverlay \
+    libboringssl-compat
 
 # Netutils
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # OMX properties
@@ -212,6 +183,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
@@ -252,13 +224,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml \
     $(LOCAL_PATH)/configs/apns-conf-cdma.xml:system/etc/apns-conf-cdma.xml
 
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
-
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
     sensors.msm8226 \
     akmd8963
 
@@ -271,15 +238,7 @@ PRODUCT_PACKAGES += \
 
 # USB HAL
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
-
-# Widevine
-PRODUCT_PACKAGES += \
-    libshim_wvm
+    com.android.future.usb.accessory
 
 # WiFi
 PRODUCT_COPY_FILES += \
@@ -292,11 +251,12 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wcnss_service \
     wpa_supplicant \
-    wificond
+    wificond \
+    libwifilogd
 
 PRODUCT_PACKAGES += \
     libqsap_sdk \
-    #libQWiFiSoftApCfg
+    libQWiFiSoftApCfg
 
 PRODUCT_PACKAGES += \
     hostapd_default.conf \
@@ -306,13 +266,3 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf \
     WCNSS_qcom_wlan_factory_nv.bin
-
-# WiFi HAL
-PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service
-
-# Call the proprietary setup
-$(call inherit-product-if-exists, vendor/moto/falcon/falcon-vendor.mk)
-
-# Inherit from moto-common
-#$(call inherit-product, device/moto/common/common.mk)
