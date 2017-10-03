@@ -20,8 +20,7 @@
 
 PLATFORM_PATH := device/moto/falcon
 
-# Include path
-TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
+BOARD_VENDOR := motorola-qcom
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
@@ -31,7 +30,6 @@ TARGET_NO_RADIOIMAGE := true
 # Platform
 TARGET_BOARD_PLATFORM := msm8226
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
-QCOM_BOARD_PLATFORMS += msm8226
 
 # Architecture
 TARGET_ARCH := arm
@@ -39,9 +37,14 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := krait
+TARGET_CPU_SMP := true
 
 # Assertions
 #TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
+
+TARGET_FS_CONFIG_GEN += \
+    $(PLATFORM_PATH)/fs_config/file_caps.fs \
+    $(PLATFORM_PATH)/fs_config/mot_aids.fs
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
@@ -55,13 +58,14 @@ TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := falcon_defconfig
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8226
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
-PRODUCT_VENDOR_KERNEL_HEADERS :=  $(DEVICE_PATH)/kernel-headers
 
-# ANT+
-BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+
+#ENABLE_CPUSETS := true
+#ENABLE_SCHEDBOOST := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := none
+TARGET_OTA_ASSERT_DEVICE := xt1031,xt1032,xt1033,xt1034,falcon_umts,falcon_umtsds,falcon_cdma,falcon_retuaws,falcon,falcon_gpe
 
 # Audio
 BOARD_USES_ALSA_AUDIO:= true
@@ -86,10 +90,12 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 
 # Camera
+USE_CAMERA_STUB := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_PROVIDES_CAMERA_HAL := true
 TARGET_USES_NON_TREBLE_CAMERA := true
 USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
 # Charger
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/mmi_lpm/lpm_mode
@@ -127,6 +133,10 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 
+# HIDL
+DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/compatibility_matrix.xml
+
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_falcon
 TARGET_RECOVERY_DEVICE_MODULES := libinit_falcon
@@ -143,6 +153,13 @@ MALLOC_SVELTE := true
 # netd
 TARGET_KERNEL_NO_FRA_UID_RANGE_SUPPORT := true
 
+# Peripheral manager
+TARGET_PER_MGR_ENABLED := true
+
+# Power
+#TARGET_POWERHAL_VARIANT := qcom
+TARGET_PROVIDES_POWERHAL := true
+
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
@@ -150,6 +167,7 @@ TARGET_USES_QCOM_BSP := true
 TARGET_QCOM_AUDIO_VARIANT := caf-msm8974
 TARGET_QCOM_DISPLAY_VARIANT := caf-msm8974
 TARGET_QCOM_MEDIA_VARIANT := caf-msm8974
+USE_CLANG_PLATFORM_BUILD := true
 
 # Radio
 TARGET_RIL_VARIANT := caf
@@ -162,12 +180,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
 # RPC
 TARGET_NO_RPC := true
-
-# SELinux
-include device/qcom/sepolicy/sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += \
-    $(PLATFORM_PATH)/sepolicy
 
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
@@ -184,9 +196,4 @@ WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-#wificond
-TARGET_KERNEL_NO_NL80211_ATTR_MAC := true
-
 -include vendor/moto/falcon/BoardConfigVendor.mk
-DEVICE_MANIFEST_FILE := device/moto/falcon/manifest.xml
-
