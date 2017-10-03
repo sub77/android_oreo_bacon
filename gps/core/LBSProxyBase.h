@@ -39,8 +39,12 @@ class LocAdapterBase;
 class LBSProxyBase {
     friend class ContextBase;
     inline virtual LocApiBase*
-        getLocApi(const MsgTask* msgTask,
-                  LOC_API_ADAPTER_EVENT_MASK_T exMask) const {
+         getLocApi(const MsgTask* msgTask,
+                   LOC_API_ADAPTER_EVENT_MASK_T exMask,
+                   ContextBase* context) const {
+        (void)msgTask;
+        (void)exMask;
+        (void)context;					
         return NULL;
     }
 protected:
@@ -48,7 +52,11 @@ protected:
 public:
     inline virtual ~LBSProxyBase() {}
     inline virtual void requestUlp(LocAdapterBase* adapter,
-                                   unsigned long capabilities) const {}
+                                   unsigned long capabilities) const {
+
+        (void)adapter;
+        (void)capabilities;
+    }                                   
     inline virtual bool hasAgpsExt() const { return false; }
     inline virtual bool hasCPIExt() const { return false; }
 };

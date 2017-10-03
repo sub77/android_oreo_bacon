@@ -194,7 +194,10 @@ public:
     virtual void stopDataCall();
     virtual void closeDataCall();
 
-    inline virtual void setInSession(bool inSession) {}
+    inline virtual void setInSession(bool inSession) {
+
+        (void)inSession;
+    }
 
     /*Values for lock
       1 = Do not lock any position sessions

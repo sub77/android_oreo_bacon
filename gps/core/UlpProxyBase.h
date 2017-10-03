@@ -47,18 +47,34 @@ public:
                                        void* locationExt,
                                        enum loc_sess_status status,
                                        LocPosTechMask loc_technology_mask) {
+        (void)location;
+        (void)locationExtended;
+        (void)locationExt;
+        (void)status;
+        (void)loc_technology_mask;										   
         return false;
     }
     inline virtual bool reportSv(GpsSvStatus &svStatus,
                                  GpsLocationExtended &locationExtended,
                                  void* svExt) {
+        (void)svStatus;
+        (void)locationExtended;
+        (void)svExt;									 
         return false;
     }
     inline virtual bool reportStatus(GpsStatusValue status) {
+
+		(void)status;
         return false;
     }
-    inline virtual void setAdapter(LocAdapterBase* adapter) {}
-    inline virtual void setCapabilities(unsigned long capabilities) {}
+    inline virtual void setAdapter(LocAdapterBase* adapter) {
+
+        (void)adapter;
+    }
+    inline virtual void setCapabilities(unsigned long capabilities) {
+
+        (void)capabilities;
+    }
 };
 
 } // namespace loc_core
