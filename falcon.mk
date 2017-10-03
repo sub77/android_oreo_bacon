@@ -14,22 +14,20 @@
 # limitations under the License.
 #
 
-ifneq ($(QCPATH),)
-$(call inherit-product-if-exists, $(QCPATH)/common/config/device-vendor.mk)
-endif
+$(call inherit-product, device/moto/falcon/hidl.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay vendor/extra/overlays/phone-720p
 
-# AOSP Packages
-PRODUCT_PACKAGES += \
-    Launcher3 \
-    messaging \
-    Terminal
+PRODUCT_CHARACTERISTICS := nosdcard
 
 # API (for CTS backward compatibility)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.first_api_level=19
+
+# For android_filesystem_config.h
+PRODUCT_PACKAGES += \
+    fs_config_files
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -44,12 +42,6 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing
 
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.broadcastradio@1.0-impl \
-    android.hardware.soundtrigger@2.0-impl
-
 # Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
@@ -59,33 +51,30 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
     libbt-vendor
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 72080
+TARGET_SCREEN_WIDTH := 720
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.device@1.0-impl \
-    android.hardware.camera.provider@2.4-impl \
     camera.msm8226 \
     libshims_camera \
     libshims_qcopt \
     libshims_sensorlistener \
-    Camera2
+    SnapdragonCamera
 
 # Charger
 PRODUCT_PACKAGES += \
-    charger_res_images
+    omni_charger_res_images
 
 # Dalvik/HWUI
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # Data
-PRODUCT_PACKAGES += \
-    librmnetctl
+#PRODUCT_PACKAGES += \
+#    librmnetctl
 
 # Display
 PRODUCT_AAPT_CONFIG := normal
@@ -96,14 +85,6 @@ PRODUCT_PROPERTY_OVERRIDES += debug.hwui.use_buffer_age=false
 PRODUCT_PACKAGES += \
     MotoGDoze
 
-# DRM
-#PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl
-
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
-
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8226 \
@@ -113,27 +94,9 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libboringssl-compat
 
-# Gralloc
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.memtrack@1.0-impl
-
-# GNSS HAL
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8226
-
-# HW Composer
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.1-impl
-
-# Keymaster HAL
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl
 
 # IPC router config
 PRODUCT_COPY_FILES += \
@@ -145,7 +108,6 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
     lights.msm8226
 
 # Media profile
@@ -181,10 +143,6 @@ PRODUCT_PACKAGES += \
     libstlport \
     libtinyxml \
     libxml2
-
-# Netutils
-#PRODUCT_PACKAGES += \
-    netutils-wrapper-1.0
 
 # OMX properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -225,8 +183,14 @@ PRODUCT_PACKAGES += \
     power.msm8226
 
 # Properties
-PRODUCT_PROPERTY_OVERRIDES += \
+#PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=false
+
+# qcom
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1 \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -253,13 +217,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml \
     $(LOCAL_PATH)/configs/apns-conf-cdma.xml:system/etc/apns-conf-cdma.xml
 
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
-
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
     sensors.msm8226 \
     akmd8963
 
@@ -269,14 +228,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libshims_thermal
-
-# USB HAL
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
 
 # Widevine
 PRODUCT_PACKAGES += \
@@ -307,10 +258,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf \
     WCNSS_qcom_wlan_factory_nv.bin
-
-# WiFi HAL
-PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service
 
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/moto/falcon/falcon-vendor.mk)
