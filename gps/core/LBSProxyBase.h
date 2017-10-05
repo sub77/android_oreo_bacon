@@ -40,11 +40,9 @@ class LBSProxyBase {
     friend class ContextBase;
     inline virtual LocApiBase*
          getLocApi(const MsgTask* msgTask,
-                   LOC_API_ADAPTER_EVENT_MASK_T exMask,
-                   ContextBase* context) const {
+                   LOC_API_ADAPTER_EVENT_MASK_T exMask) const {
         (void)msgTask;
         (void)exMask;
-        (void)context;					
         return NULL;
     }
 protected:
