@@ -243,7 +243,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_PACKAGES += \
-    hostapd \
     libwpa_client \
     wcnss_service \
     wpa_supplicant \
@@ -254,9 +253,6 @@ PRODUCT_PACKAGES += \
     #libQWiFiSoftApCfg
 
 PRODUCT_PACKAGES += \
-    hostapd_default.conf \
-    hostapd.accept \
-    hostapd.deny \
     wpa_supplicant.conf \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf \
