@@ -27,4 +27,20 @@
 
     <string name="pocket_gesture_title">Pocket</string>
     <string name="pocket_gesture_summary">Pulse notifications on removal from pocket</string>
+
+    <string name="advanced_settings">Advanced</string>
+
+    <string name="category_gestures_title">Off screen gestures</string>
+    <string name="category_gestures_summary">Configure off screen gesture actions</string>
+
+    <string name="category_vibrator">Vibrator</string>
+
+    <string name="vib_strength_title_head">Strength</string>
+    <string name="vib_strength_summary_head">Define the strength of the vibrator</string>
+    <string name="vib_test">Test</string>
+
+    <string name="buttons_title">Buttons</string>
+    <string name="swap_back_recents_summary"></string>
+    <string name="swap_back_recents_title">Swap back and recents button</string>
+
 </resources>
