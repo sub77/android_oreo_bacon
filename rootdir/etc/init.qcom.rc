@@ -386,7 +386,7 @@ on boot
     chmod 0660 /sys/devices/virtual/timed_output/vibrator/vtg_level
 
     # Display
-    chown system graphics /sys/class/graphics/fb0/idle_time
+    cchown system graphics /sys/class/graphics/fb0/idle_time
     chown system graphics /sys/class/graphics/fb0/mode
     chown system graphics /sys/class/graphics/fb0/modes
 
@@ -563,8 +563,7 @@ service mmi-touch-sh /system/bin/sh /init.mmi.touch.sh synaptics aps
 
 service charger /charger
     class charger
-    group log
-    seclabel u:r:healthd:s0
+    critical
 
 service mpdecision /system/bin/mpdecision --avg_comp
     user root
