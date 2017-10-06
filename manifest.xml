@@ -161,7 +161,7 @@
         <version>1.0</version>
         <interface>
             <name>ISensors</name>
-            <instance>default</instance>
+            <instance>msm8226</instance>
         </interface>
     </hal>
     <hal format="hidl">
