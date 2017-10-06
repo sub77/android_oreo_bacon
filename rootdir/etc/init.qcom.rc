@@ -145,7 +145,7 @@ on post-fs-data
     mkdir /dev/video
     symlink /dev/video32 /dev/video/venus_dec
     symlink /dev/video33 /dev/video/venus_enc
-
+f
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
@@ -386,8 +386,13 @@ on boot
     chmod 0660 /sys/devices/virtual/timed_output/vibrator/vtg_level
 
     # Display
-    chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
-    chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
+    chown system graphics /sys/class/graphics/fb0/idle_time
+    chown system graphics /sys/class/graphics/fb0/mode
+    chown system graphics /sys/class/graphics/fb0/modes
+
+    chmod 0664 /sys/class/graphics/fb0/idle_time
+    chmod 0664 /sys/class/graphics/fb0/mode
+    chmod 0664 /sys/class/graphics/fb0/modes
 
     # setup trace dir
     mkdir /cache/trace 0777 root shell
