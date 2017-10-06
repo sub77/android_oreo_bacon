@@ -1,3 +1,3 @@
--keep class org.omnirom.device.* {
+-keep class com.slimroms.doze.motog.* {
   *;
 }

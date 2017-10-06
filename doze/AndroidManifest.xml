@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.omnirom.device"
+    package="com.slimroms.doze.motog"
     android:versionCode="1"
     android:versionName="1.0"
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.INJECT_EVENTS" />
-
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -20,28 +16,17 @@
         android:label="MotoGDoze"
         android:persistent="true">
 
-        <receiver android:name="org.omnirom.device.BootCompletedReceiver">
+        <receiver android:name="com.slimroms.doze.motog.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <service android:name="org.omnirom.device.MotoGDozeService"
+        <service android:name="com.slimroms.doze.motog.MotoGDozeService"
                  android:permission="MotoGDozeService">
         </service>
 
-        <activity
-            android:name="org.omnirom.device.DeviceSettings"
-            android:exported="true"
-            android:label="@string/advanced_settings"
-            android:launchMode="singleTask" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".WakeUpGestureSettings"
             android:label="@string/screen_gestures_panel_title"

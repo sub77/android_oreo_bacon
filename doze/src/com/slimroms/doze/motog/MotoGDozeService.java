@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.omnirom.device;
+package com.slimroms.doze.motog;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
