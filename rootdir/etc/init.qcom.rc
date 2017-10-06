@@ -188,6 +188,16 @@ on post-fs-data
     mkdir /data/tpapi/etc/tpa 02770 oem_5007 oem_5007
     mkdir /data/tpapi/etc/tpa/persistent 02770 oem_5007 oem_5007
 
+    # charger
+    chown root system /sys/module/qpnp_charger/parameters/charger_monitor
+    chown root system /sys/class/power_supply/battery/input_current_max
+    chown root system /sys/class/power_supply/battery/input_current_trim
+    chown root system /sys/class/power_supply/battery/voltage_min
+    chmod 0644 /sys/module/qpnp_charger/parameters/charger_monitor
+    chmod 0644 /sys/class/power_supply/battery/input_current_max
+    chmod 0644 /sys/class/power_supply/battery/input_current_trim
+    chmod 0644 /sys/class/power_supply/battery/voltage_min
+
     # Permissions for battery health daemon
     chown oem_5001 oem_5001 /sys/module/qpnp_bms/parameters/last_ocv_uv
     chown oem_5001 oem_5001 /sys/module/qpnp_charger/parameters/bms_chrg_capacity
@@ -560,7 +570,7 @@ on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
     stop netmgrd
 
-service qcamerasvr /system/bin/mm-qcamera-daemon
+(service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
