@@ -437,7 +437,4 @@
         <item>"/system/framework/arm/boot-core-libart.vdex"</item>
    </string-array>
 
-    <!-- Enable doze powersaving -->
-    <bool name="config_enableAutoPowerModes">true</bool>
-
 </resources>
