@@ -141,6 +141,11 @@ on post-fs-data
     # camera sockets
     mkdir /data/misc/camera 0770 camera camera
 
+    # Camera Recording
+    mkdir /dev/video
+    symlink /dev/video32 /dev/video/venus_dec
+    symlink /dev/video33 /dev/video/venus_enc
+
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
