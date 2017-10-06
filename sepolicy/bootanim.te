@@ -1,2 +1,0 @@
-allow bootanim sysfs_kgsl:file r_file_perms;
-
