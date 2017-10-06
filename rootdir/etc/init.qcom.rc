@@ -451,7 +451,7 @@ on boot
 
 # Services start here
 
-service adsprpcd /system/bin/adsprpcd
+service adsprpcd /system/vendor/bin/adsprpcd
     class main
     user media
     group media
@@ -483,7 +483,7 @@ on property:vold.decrypt=trigger_restart_framework
     start config_bt_addr
     start wcnss-service
 
-service config_bt_addr /system/bin/btnvtool -O
+service config_bt_addr /system/vendor/bin/btnvtool -O
     class core
     user bluetooth
     group bluetooth radio
@@ -502,7 +502,7 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     disabled
     oneshot
 
-service irsc_util /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /system/vendor/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
@@ -565,12 +565,12 @@ service charger /charger
     class charger
     critical
 
-service mpdecision /system/bin/mpdecision --avg_comp
+service mpdecision /system/vendor/bin/mpdecision --avg_comp
     user root
     group root system
     disabled
 
-service netmgrd /system/bin/netmgrd
+service netmgrd /system/vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
@@ -579,27 +579,27 @@ on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
     stop netmgrd
 
-(service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
 
-service qmuxd /system/bin/qmuxd
+service qmuxd /system/vendor/bin/qmuxd
     class main
     user radio
     group radio audio bluetooth wakelock gps diag
 
-service qseecomd /system/bin/qseecomd
+service qseecomd /system/vendor/bin/qseecomd
     class late_start
     user root
     group root
 
-service rfs_access /system/bin/rfs_access
+service rfs_access /system/vendor/bin/rfs_access
    class core
    user system
    group system net_raw
 
-service rmt_storage /system/bin/rmt_storage
+service rmt_storage /system/vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
@@ -607,12 +607,12 @@ service rmt_storage /system/bin/rmt_storage
 on property:persist.sys.qc.sub.rdump.on=*
    write /sys/module/subsystem_restart/parameters/enable_ramdumps ${persist.sys.qc.sub.rdump.on}
 
-service thermal-engine /system/bin/thermal-engine -c /etc/thermal-engine-8226.conf
+service thermal-engine /system/vendor/bin/thermal-engine -c /etc/thermal-engine-8226.conf
     class main
     user root
     group root
 
-service time_daemon /system/bin/time_daemon
+service time_daemon /system/vendor/bin/time_daemon
     class late_start
     user root
     group root
