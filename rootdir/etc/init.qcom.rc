@@ -133,10 +133,13 @@ on post-fs-data
     # Enable the setgid bit on the directory
     chmod 2770 /data/audio
 
+    setprop vold.post_fs_data_done 1
+
+    #Create folder for mm-qcamera-daemon
+    mkdir /data/camera 0770 media camera
+
     # camera sockets
     mkdir /data/misc/camera 0770 camera camera
-
-    setprop vold.post_fs_data_done 1
 
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
