@@ -9,16 +9,14 @@
 /sys/devices/virtual/timed_output/vibrator/vtg_level            u:object_r:sysfs_vibrator:s0
 /sys/kernel/debug/rmt_storage/rmts                              u:object_r:sysfs_rmt_storage:s0
 
-# FRP partition
-/dev/block/platform/soc/624000.ufshc/by-name/config             u:object_r:frp_block_device:s0
-# We have a couple of non-standard NV partitions
-/dev/block/platform/soc/624000.ufshc/by-name/oem_dycnvbk                       u:object_r:modem_efs_partition_device:s0
-/dev/block/platform/soc/624000.ufshc/by-name/oem_stanvbk                       u:object_r:modem_efs_partition_device:s0
-
 /data/time(/.*)?                                                u:object_r:time_data_file:s0
 /data/misc/perfd(/.*)?                                          u:object_r:mpctl_data_file:s0
 /data/system/perfd(/.*)?                                        u:object_r:mpctl_data_file:s0
 /data/oemnvitems(/.*)?                                          u:object_r:nv_data_file:s0
 /data/misc/iop(/.*)?                                            u:object_r:iop_data_file:s0
 /data/misc/location(/.*)?                                       u:object_r:location_data_file:s0
+
+/sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0(/.*)?         u:object_r:sysfs_kgsl:s0
+/system/bin/wcnss_service                                       u:object_r:wcnss_service_exec:s0
+/system/bin/audiod                                              u:object_r:audiod_exec:s0
 
