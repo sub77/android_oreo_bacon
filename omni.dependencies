@@ -36,10 +36,10 @@
     "revision": "android-7.0"
   },
   {
-    "remote": "omnirom",
-    "repository": "android_hardware_sony_boringssl-compat",
-    "target_path": "hardware/sony/boringssl-compat",
-    "revision": "android-6.0"
+    "remote": "github",
+    "repository": "sub77/android_external_sony_boringssl-compat",
+    "target_path": "external/sony/boringssl-compat",
+    "revision": "android-8.0"
   },
   {
     "remote": "omnirom",
