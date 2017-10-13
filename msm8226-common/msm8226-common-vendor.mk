@@ -217,8 +217,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     TimeService \
-    com.qualcomm.location \
-    com.qualcomm.services.location \
     qcrilmsgtunnel \
     qcnvitems \
     qcrilhook
