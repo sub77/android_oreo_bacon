@@ -190,10 +190,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power_profiles.xml:system/etc/power_profiles.xml
 
-# Properties
-#PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=false
-
 # qcom
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1 \
