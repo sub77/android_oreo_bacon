@@ -174,10 +174,6 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libxml2
 
-# OMX properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.media.treble_omx=false
-
 # Perf
 PRODUCT_PACKAGES += \
     libshims_atomic
@@ -214,12 +210,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power_profiles.xml:system/etc/power_profiles.xml
-
-# qcom
-PRODUCT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1 \
-    media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -259,10 +249,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libshims_thermal
 
-# Widevine
-PRODUCT_PACKAGES += \
-    libshim_wvm
-
 # WiFi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -287,6 +273,3 @@ PRODUCT_PACKAGES += \
 
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/moto/falcon/falcon-vendor.mk)
-
-# Inherit from moto-common
-#$(call inherit-product, device/moto/common/common.mk)
