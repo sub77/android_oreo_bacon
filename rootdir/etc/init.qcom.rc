@@ -545,7 +545,7 @@ service charger /charger
 
 service mpdecision /system/bin/mpdecision --avg_comp
     user root
-    group root system
+    group root readproc
     disabled
 
 service netmgrd /system/bin/netmgrd
