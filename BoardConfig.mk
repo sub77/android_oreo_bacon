@@ -184,6 +184,14 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 # RPC
 TARGET_NO_RPC := true
 
+# selinux
+#include device/qcom/sepolicy/sepolicy.mk
+
+BOARD_SEPOLICY_DIRS += \
+$(COMMON_PATH)/sepolicy
+
+include vendor/omni/sepolicy/sepolicy.mk
+
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
 
