@@ -43,26 +43,26 @@ PRODUCT_COPY_FILES += \
     vendor/moto/falcon/proprietary/vendor/lib/libqc-opt.so:system/vendor/lib/libqc-opt.so
 
 PRODUCT_COPY_FILES += \
-    vendor/moto/falcon/proprietary/bin/adsprpcd:system/bin/adsprpcd \
-    vendor/moto/falcon/proprietary/bin/batt_health:system/bin/batt_health \
-    vendor/moto/falcon/proprietary/bin/btnvtool:system/bin/btnvtool \
-    vendor/moto/falcon/proprietary/bin/dbvc_atvc_property_set:system/bin/dbvc_atvc_property_set \
-    vendor/moto/falcon/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init \
-    vendor/moto/falcon/proprietary/bin/irsc_util:system/bin/irsc_util \
-    vendor/moto/falcon/proprietary/bin/location-mq:system/bin/location-mq \
-    vendor/moto/falcon/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon \
-    vendor/moto/falcon/proprietary/bin/mpdecision:system/bin/mpdecision \
-    vendor/moto/falcon/proprietary/bin/netmgrd:system/bin/netmgrd \
     vendor/moto/falcon/proprietary/bin/qmi_motext_hook:system/bin/qmi_motext_hook \
-    vendor/moto/falcon/proprietary/bin/qmuxd:system/bin/qmuxd \
-    vendor/moto/falcon/proprietary/bin/qseecomd:system/bin/qseecomd \
-    vendor/moto/falcon/proprietary/bin/radish:system/bin/radish \
-    vendor/moto/falcon/proprietary/bin/rfs_access:system/bin/rfs_access \
-    vendor/moto/falcon/proprietary/bin/rmt_storage:system/bin/rmt_storage \
-    vendor/moto/falcon/proprietary/bin/thermal-engine:system/bin/thermal-engine \
-    vendor/moto/falcon/proprietary/bin/time_daemon:system/bin/time_daemon \
-    vendor/moto/falcon/proprietary/bin/xtwifi-client:system/bin/xtwifi-client \
-    vendor/moto/falcon/proprietary/bin/xtwifi-inet-agent:system/bin/xtwifi-inet-agent \
+    vendor/moto/falcon/proprietary/vendor/bin/adsprpcd:system/vendor/bin/adsprpcd \
+    vendor/moto/falcon/proprietary/vendor/bin/batt_health:system/vendor/bin/batt_health \
+    vendor/moto/falcon/proprietary/vendor/bin/btnvtool:system/vendor/bin/btnvtool \
+    vendor/moto/falcon/proprietary/vendor/bin/dbvc_atvc_property_set:system/vendor/bin/dbvc_atvc_property_set \
+    vendor/moto/falcon/proprietary/vendor/bin/hci_qcomm_init:system/vendor/bin/hci_qcomm_init \
+    vendor/moto/falcon/proprietary/vendor/bin/irsc_util:system/vendor/bin/irsc_util \
+    vendor/moto/falcon/proprietary/vendor/bin/location-mq:system/vendor/bin/location-mq \
+    vendor/moto/falcon/proprietary/vendor/bin/mm-qcamera-daemon:system/vendor/bin/mm-qcamera-daemon \
+    vendor/moto/falcon/proprietary/vendor/bin/mpdecision:system/vendor/bin/mpdecision \
+    vendor/moto/falcon/proprietary/vendor/bin/netmgrd:system/vendor/bin/netmgrd \
+    vendor/moto/falcon/proprietary/vendor/bin/qmuxd:system/vendor/bin/qmuxd \
+    vendor/moto/falcon/proprietary/vendor/bin/qseecomd:system/vendor/bin/qseecomd \
+    vendor/moto/falcon/proprietary/vendor/bin/radish:system/vendor/bin/radish \
+    vendor/moto/falcon/proprietary/vendor/bin/rfs_access:system/vendor/bin/rfs_access \
+    vendor/moto/falcon/proprietary/vendor/bin/rmt_storage:system/vendor/bin/rmt_storage \
+    vendor/moto/falcon/proprietary/vendor/bin/thermal-engine:system/vendor/bin/thermal-engine \
+    vendor/moto/falcon/proprietary/vendor/bin/time_daemon:system/vendor/bin/time_daemon \
+    vendor/moto/falcon/proprietary/vendor/bin/xtwifi-client:system/vendor/bin/xtwifi-client \
+    vendor/moto/falcon/proprietary/vendor/bin/xtwifi-inet-agent:system/vendor/bin/xtwifi-inet-agent \
     vendor/moto/falcon/proprietary/etc/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
     vendor/moto/falcon/proprietary/etc/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw \
     vendor/moto/falcon/proprietary/etc/firmware/a330_pfp.fw:system/etc/firmware/a330_pfp.fw \
