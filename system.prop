@@ -3,24 +3,25 @@
 dalvik.vm.dex2oat-flags=--no-watch-dog
 
 # Audio
-audio.offload.disable=1
-audio.offload.pcm.16bit.enable=false
-audio.offload.pcm.24bit.enable=false
-audio.offload.buffer.size.kb=32
-audio.offload.gapless.enabled=true
-audio.offload.video=false
+vendor.audio.offload.disable=1
+vendor.audio.offload.pcm.16bit.enable=false
+vendor.audio.offload.pcm.24bit.enable=false
+vendor.audio.offload.buffer.size.kb=32
+vendor.audio.offload.gapless.enabled=true
+vendor.audio.offload.video=false
 
-persist.audio.calfile0=/etc/Bluetooth_cal.acdb
-persist.audio.calfile1=/etc/General_cal.acdb
-persist.audio.calfile2=/etc/Global_cal.acdb
-persist.audio.calfile3=/etc/Handset_cal.acdb
-persist.audio.calfile4=/etc/Hdmi_cal.acdb
-persist.audio.calfile5=/etc/Headset_cal.acdb
-persist.audio.calfile6=/etc/Speaker_cal.acdb
+persist.vendor.audio.calfile0=/etc/Bluetooth_cal.acdb
+persist.vendor.audio.calfile1=/etc/General_cal.acdb
+persist.vendor.audio.calfile2=/etc/Global_cal.acdb
+persist.vendor.audio.calfile3=/etc/Handset_cal.acdb
+persist.vendor.audio.calfile4=/etc/Hdmi_cal.acdb
+persist.vendor.audio.calfile5=/etc/Headset_cal.acdb
+persist.vendor.audio.calfile6=/etc/Speaker_cal.acdb
 
-persist.audio.fluence.voicecall=true
-ro.qc.sdk.audio.fluencetype=fluence
-ro.qc.sdk.audio.ssr=false
+persist.vendor.audio.fluence.voicecall=true
+
+ro.vendor.qc.sdk.audio.fluencetype=fluence
+ro.vendor.qc.sdk.audio.ssr=false
 
 use.voice.path.for.pcm.voip=true
 
