@@ -60,10 +60,15 @@ TARGET_SCREEN_WIDTH := 720
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8226 \
-    libshims_camera \
-    libshims_qcopt \
     libshims_sensorlistener \
     SnapdragonCamera
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera.disable_treble=true \
+    camera2.portability.force_api=1 \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true \
+    persist.media.treble_omx=false
 
 # Charger
 PRODUCT_PACKAGES += \
