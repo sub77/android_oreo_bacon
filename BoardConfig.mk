@@ -37,6 +37,7 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := krait
 TARGET_CPU_SMP := true
+TARGET_NEEDS_GCC_LIBC := true
 
 # Assertions
 #TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
