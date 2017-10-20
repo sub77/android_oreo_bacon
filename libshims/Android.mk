@@ -35,7 +35,6 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
     sensorlistener/ISensorServer.cpp \
-    sensorlistener/SensorManager.cpp \
     sensorlistener/MediaCodec.cpp \
     sensorlistener/icu56.c \
     sensorlistener/moto_camera_misc.c \
