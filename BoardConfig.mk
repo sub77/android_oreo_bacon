@@ -129,10 +129,6 @@ USE_OPENGL_RENDERER := true
 DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/compatibility_matrix.xml
 
-# Init
-TARGET_INIT_VENDOR_LIB := libinit_falcon
-TARGET_RECOVERY_DEVICE_MODULES := libinit_falcon
-
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
@@ -182,6 +178,10 @@ include vendor/omni/sepolicy/sepolicy.mk
 
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
+
+# Vendor Init
+TARGET_INIT_VENDOR_LIB := libinit_falcon
+TARGET_RECOVERY_DEVICE_MODULES := libinit_falcon
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
