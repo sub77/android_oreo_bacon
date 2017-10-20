@@ -429,18 +429,18 @@ on boot
 
 # Services start here
 
-service adsprpcd /system/bin/adsprpcd
+service adsprpcd /vendor/bin/adsprpcd
     class main
     user media
     group media
 
-service atvc_core /system/bin/dbvc_atvc_property_set
+service atvc_core /vendor/bin/dbvc_atvc_property_set
     class core
     user oem_5012
     group oem_5007
     oneshot
 
-service atvc /system/bin/dbvc_atvc_property_set
+service atvc /vendor/bin/dbvc_atvc_property_set
     class late_start
     user oem_5012
     group oem_5007
@@ -451,7 +451,7 @@ service audiod /system/bin/audiod
     user system
     group system
 
-service batt_health /system/bin/batt_health
+service batt_health /vendor/bin/batt_health
     class main
     user oem_5001
     group oem_5001
@@ -461,7 +461,7 @@ on property:vold.decrypt=trigger_restart_framework
     start config_bt_addr
     start wcnss-service
 
-service config_bt_addr /system/bin/btnvtool -O
+service config_bt_addr /vendor/bin/btnvtool -O
     class core
     user bluetooth
     group bluetooth radio
@@ -480,12 +480,12 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     disabled
     oneshot
 
-service irsc_util /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /vendor/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
 
-service location_mq /system/bin/location-mq
+service location_mq /vendor/bin/location-mq
     class late_start
     user gps
     group gps
@@ -543,12 +543,12 @@ service charger /charger
     class charger
     critical
 
-service mpdecision /system/bin/mpdecision --avg_comp
+service mpdecision /vendor/bin/mpdecision --avg_comp
     user root
     group root readproc
     disabled
 
-service netmgrd /system/bin/netmgrd
+service netmgrd /vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
@@ -557,27 +557,27 @@ on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
     stop netmgrd
 
-(service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
 
-service qmuxd /system/bin/qmuxd
+service qmuxd /vendor/bin/qmuxd
     class main
     user radio
     group radio audio bluetooth wakelock gps diag
 
-service qseecomd /system/bin/qseecomd
+service qseecomd /vendor/bin/qseecomd
     class late_start
     user root
     group root
 
-service rfs_access /system/bin/rfs_access
+service rfs_access /vendor/bin/rfs_access
    class core
    user system
    group system net_raw
 
-service rmt_storage /system/bin/rmt_storage
+service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
@@ -585,12 +585,12 @@ service rmt_storage /system/bin/rmt_storage
 on property:persist.sys.qc.sub.rdump.on=*
    write /sys/module/subsystem_restart/parameters/enable_ramdumps ${persist.sys.qc.sub.rdump.on}
 
-service thermal-engine /system/bin/thermal-engine -c /etc/thermal-engine-8226.conf
+service thermal-engine /vendor/bin/thermal-engine -c /etc/thermal-engine-8226.conf
     class main
     user root
     group root
 
-service time_daemon /system/bin/time_daemon
+service time_daemon /vendor/bin/time_daemon
     class late_start
     user root
     group root
@@ -602,7 +602,7 @@ service wcnss-service /system/bin/wcnss_service
     oneshot
 
 # WPA
-service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
@@ -615,13 +615,13 @@ service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
-service xtwifi_client /system/bin/xtwifi-client
+service xtwifi_client /vendor/bin/xtwifi-client
     class late_start
     user gps
     group net_admin wifi inet gps
     disabled
 
-service xtwifi_inet /system/bin/xtwifi-inet-agent
+service xtwifi_inet /vendor/bin/xtwifi-inet-agent
     class late_start
     user gps
     group inet gps
