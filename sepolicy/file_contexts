@@ -1,3 +1,6 @@
+ adspd
+/data/adspd(/.*)?                                           u:object_r:adspd_file:s0
+
 # Binaries
 /system/bin/dump_pds\.sh                                    u:object_r:dump_pds_exec:s0
 /vendor/bin/adspd                                           u:object_r:adspd_exec:s0
