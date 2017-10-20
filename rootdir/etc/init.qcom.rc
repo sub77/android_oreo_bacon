@@ -446,11 +446,6 @@ service atvc /vendor/bin/dbvc_atvc_property_set
     group oem_5007
     oneshot
 
-service audiod /system/bin/audiod
-    class late_start
-    user system
-    group system
-
 service batt_health /vendor/bin/batt_health
     class main
     user oem_5001
