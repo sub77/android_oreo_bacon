@@ -41,10 +41,6 @@ TARGET_CPU_SMP := true
 # Assertions
 #TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
 
-TARGET_FS_CONFIG_GEN += \
-    $(PLATFORM_PATH)/fs_config/file_caps.fs \
-    $(PLATFORM_PATH)/fs_config/mot_aids.fs
-
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := androidboot.bootdevice=msm_sdcc.1 androidboot.hardware=qcom vmalloc=400M utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags androidboot.selinux=permissive
