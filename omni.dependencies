@@ -1,9 +1,27 @@
 [
   {
     "remote": "github",
-    "repository": "sub77/android_kernel_motorola_msm8226",
-    "target_path": "kernel/motorola/msm8226",
-    "revision": "android-8.0"
+    "repository": "sub77/omnirom_moto_falcon",
+    "target_path": "kernel/moto/msm8226",
+    "revision": "kernel_moto_msm8226"
+  },
+  {
+    "remote": "github",
+    "repository": "sub77/omnirom_moto_falcon",
+    "target_path": "vendor/moto",
+    "revision": "vendor_moto"
+  },
+  {
+    "remote": "github",
+    "repository": "sub77/omnirom_moto_falcon",
+    "target_path": "vendor/extra",
+    "revision": "vendor_extra"
+  },
+  {
+    "remote": "github",
+    "repository": "sub77/omnirom_moto_falcon",
+    "target_path": "external/sony/boringssl-compat",
+    "revision": "external_sony_boringssl-compat"
   },
   {
     "remote": "omnirom",
@@ -34,12 +52,6 @@
     "repository": "android_external_stlport",
     "target_path": "external/stlport",
     "revision": "android-7.0"
-  },
-  {
-    "remote": "github",
-    "repository": "sub77/android_external_sony_boringssl-compat",
-    "target_path": "external/sony/boringssl-compat",
-    "revision": "android-8.0"
   },
   {
     "remote": "omnirom",
