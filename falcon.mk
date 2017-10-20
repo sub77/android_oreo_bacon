@@ -103,8 +103,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.image-dex2oat-threads=4
 
 # Data
-#PRODUCT_PACKAGES += \
-#    librmnetctl
+PRODUCT_PACKAGES += \
+    librmnetctl
 
 # Display
 PRODUCT_AAPT_CONFIG := normal
