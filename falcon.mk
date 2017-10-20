@@ -115,6 +115,10 @@ PRODUCT_PROPERTY_OVERRIDES += debug.hwui.use_buffer_age=false
 PRODUCT_PACKAGES += \
     MotoGDoze
 
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    resize2fs_static
+
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8226 \
