@@ -1,2 +1,0 @@
-get_prop(priv_app, diag_prop);
-allow priv_app proc_interrupts:file r_file_perms;

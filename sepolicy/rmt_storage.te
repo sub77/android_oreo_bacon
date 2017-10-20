@@ -1,1 +1,0 @@
-allow rmt_storage sysfs_rmt_storage:file rw_file_perms;
