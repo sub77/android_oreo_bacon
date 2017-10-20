@@ -200,7 +200,6 @@ vendor/lib/libOmxWmaDec.so
 vendor/lib/libSHIMDivxDrm.so
 
 # Moto
-vendor/bin/batt_health
 vendor/bin/dbvc_atvc_property_set
 
 # Perf

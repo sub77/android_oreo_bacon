@@ -203,16 +203,6 @@ f
     chmod 0644 /sys/class/power_supply/battery/input_current_trim
     chmod 0644 /sys/class/power_supply/battery/voltage_min
 
-    # Permissions for battery health daemon
-    chown oem_5001 oem_5001 /sys/module/qpnp_bms/parameters/last_ocv_uv
-    chown oem_5001 oem_5001 /sys/module/qpnp_charger/parameters/bms_chrg_capacity
-    chown oem_5001 oem_5001 /sys/module/qpnp_charger/parameters/bms_chrg_capacity_temp
-    chown oem_5001 oem_5001 /sys/module/qpnp_charger/parameters/chrg_timestamp
-    chown root oem_5001 /sys/class/power_supply/battery/capacity
-    chown root oem_5001 /sys/class/power_supply/battery/status
-
-    start batt_health
-
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -445,12 +435,6 @@ service atvc /vendor/bin/dbvc_atvc_property_set
     user oem_5012
     group oem_5007
     oneshot
-
-service batt_health /vendor/bin/batt_health
-    class main
-    user oem_5001
-    group oem_5001
-    disabled
 
 on property:vold.decrypt=trigger_restart_framework
     start config_bt_addr
