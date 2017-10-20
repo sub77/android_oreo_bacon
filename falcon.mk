@@ -237,6 +237,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml \
     $(LOCAL_PATH)/configs/apns-conf-cdma.xml:system/etc/apns-conf-cdma.xml
 
+# Seccomp policy
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8226 \
