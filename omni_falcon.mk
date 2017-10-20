@@ -46,7 +46,7 @@ PRODUCT_MODEL := falcon
 PRODUCT_MANUFACTURER := motorola
 
 # Inline kernel
-TARGET_KERNEL_SOURCE := kernel/motorola/msm8226
+TARGET_KERNEL_SOURCE := kernel/moto/msm8226
 TARGET_KERNEL_CONFIG := falcon_defconfig
 
 # Inherit from proprietary blobs
