@@ -40,7 +40,7 @@ TARGET_CPU_SMP := true
 TARGET_NEEDS_GCC_LIBC := true
 
 # Assertions
-#TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
+TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
