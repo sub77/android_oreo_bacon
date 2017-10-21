@@ -216,22 +216,26 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power_profiles.xml:system/etc/power_profiles.xml
 
 # Ramdisk
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:root/init.qcom.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.power.rc:root/init.qcom.power.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.usb.rc:root/init.qcom.usb.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.target.rc:root/init.target.rc \
-    $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.qcom.rc \
+    init.qcom.power.rc \
+    init.recovery.qcom.rc \
+    init.qcom.usb.rc \
+    init.target.rc \
+    ueventd.qcom.rc
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/dump_pds.sh:system/bin/dump_pds.sh \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:root/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/etc/init.mmi.boot.sh:root/init.mmi.boot.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.mmi.touch.sh:root/init.mmi.touch.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.bt.sh:root/init.qcom.bt.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.ril.sh:root/init.qcom.ril.sh \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.usb.sh:root/init.qcom.usb.sh
+# Qcom init scripts for /etc
+PRODUCT_PACKAGES += \
+    init.qcom.bt.sh \
+    init.qcom.ril.sh \
+    init.qcom.usb.sh
+
+# Motorola init scripts for /etc
+PRODUCT_PACKAGES += \
+    dump_pds.sh \
+    init.mmi.boot.sh \
+    init.mmi.touch.sh
 
 # Release tools CDMA APN list
 PRODUCT_COPY_FILES += \

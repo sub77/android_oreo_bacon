@@ -452,7 +452,7 @@ on property:bluetooth.hciattach=false
 on property:bluetooth.hciattach=true
     start hciattach
 
-service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+service hciattach /system/bin/sh /system/vendor/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
     group bluetooth net_bt_admin diag radio
@@ -470,13 +470,13 @@ service location_mq /system/vendor/bin/location-mq
     group gps
     disabled
 
-service mmi-boot-sh /system/bin/sh /init.mmi.boot.sh
+service mmi-boot-sh /system/bin/sh /system/vendor/etc/init.mmi.boot.sh
     class core
     user root
     group root radio
     oneshot
 
-service dump_pds /system/bin/dump_pds.sh
+service dump_pds /system/vendor/etc/dump_pds.sh
     user root
     group cache
     disabled
@@ -488,13 +488,13 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     group radio cache inet misc audio log readproc wakelock oem_2901
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service rild-wrapper /system/bin/sh /system/etc/init.qcom.ril.sh
+service rild-wrapper /system/bin/sh /system/vendor/etc/init.qcom.ril.sh
     class late_start
     user root
     group root
     oneshot
 
-service mmi-touch-sh /system/bin/sh /init.mmi.touch.sh synaptics aps
+service mmi-touch-sh /system/bin/sh /system/vendor/etc/init.mmi.touch.sh synaptics aps
     class late_start
     user root
     oneshot
