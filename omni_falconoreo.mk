@@ -35,11 +35,11 @@ TARGET_BOOTANIMATION_SIZE := 720p
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/moto/falcon/falcon.mk)
+$(call inherit-product, device/moto/falconoreo/falcon.mk)
 
 # Discard inherited values and use our own instead.
 PRODUCT_DEVICE := falcon
-PRODUCT_NAME := omni_falcon
+PRODUCT_NAME := omni_falconoreo
 PRODUCT_RELEASE_NAME := MOTO G
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := falcon

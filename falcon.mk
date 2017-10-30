@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/moto/falcon/hidl.mk)
+$(call inherit-product, device/moto/falconoreo/hidl.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay vendor/extra/overlays/phone-720p
@@ -272,7 +272,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libqsap_sdk \
-    #libQWiFiSoftApCfg
+    libQWiFiSoftApCfg
 
 PRODUCT_PACKAGES += \
     wpa_supplicant.conf \

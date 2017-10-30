@@ -11,8 +11,7 @@ PRODUCT_PACKAGES += \
 
 # Camera configuration file. Shared by passthrough/binderized camera HAL
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    camera.device@3.2-impl
+    android.hardware.camera.provider@2.4-impl-legacy
 
 # Display/Graphics
 PRODUCT_PACKAGES += \

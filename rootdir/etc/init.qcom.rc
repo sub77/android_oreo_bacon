@@ -453,7 +453,7 @@ on property:bluetooth.hciattach=false
 on property:bluetooth.hciattach=true
     start hciattach
 
-service hciattach /system/bin/sh /system/vendor/etc/init.qcom.bt.sh
+service hciattach /system/bin/sh /system/vendor/bin/init.qcom.bt.sh
     class late_start
     user bluetooth
     group bluetooth net_bt_admin diag radio
@@ -471,31 +471,42 @@ service location_mq /system/vendor/bin/location-mq
     group gps
     disabled
 
-service mmi-boot-sh /system/bin/sh /system/vendor/etc/init.mmi.boot.sh
+service mmi-boot-sh /system/bin/sh /system/vendor/bin/init.mmi.boot.sh
     class core
     user root
     group root radio
     oneshot
 
-service dump_pds /system/vendor/etc/dump_pds.sh
+service dump_pds /system/vendor/bin/dump_pds.sh
     user root
     group cache
     disabled
     oneshot
 
-service ril-daemon2 /vendor/bin/hw/rild -c 2
+service ril-daemon /vendor/bin/hw/rild
     class main
-    user radio
-    group radio cache inet misc audio log readproc wakelock oem_2901
-    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    socket cutback stream 660 media radio
+    socket wpa_wlan0 dgram 660 wifi wifi
+    user root
+    group radio cache inet misc audio log qcom_diag net_raw diag wifi
 
-service rild-wrapper /system/bin/sh /system/vendor/etc/init.qcom.ril.sh
+service ril-daemon1 /vendor/bin/hw/rild -c 2
+    class main
+    socket rild2 stream 660 root radio
+    socket rild-debug2 stream 660 radio system
+    user root
+    disabled
+    group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
+
+service rild1-wrapper /system/bin/sh /system/vendor/bin/init.qcom.ril.sh
     class late_start
     user root
     group root
     oneshot
 
-service mmi-touch-sh /system/bin/sh /system/vendor/etc/init.mmi.touch.sh synaptics aps
+service mmi-touch-sh /system/bin/sh /system/vendor/bin/init.mmi.touch.sh synaptics aps
     class late_start
     user root
     oneshot
@@ -503,6 +514,7 @@ service mmi-touch-sh /system/bin/sh /system/vendor/etc/init.mmi.touch.sh synapti
 service charger /charger
     class charger
     critical
+    seclabel u:r:charger:s0
 
 service mpdecision /system/vendor/bin/mpdecision --avg_comp
     user root
